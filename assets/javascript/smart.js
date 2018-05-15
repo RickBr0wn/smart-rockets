@@ -11,11 +11,13 @@ let maximumForce = 0.3
 
 let barrierX = 400 - 150
 let barrierY = 350
-let barrierWidth = windowWidth/3
+let barrierWidth = 0
 let barrierHeight = 10
 
 function setup(){
   createCanvas(windowWidth, 600)
+  barrierWidth = windowWidth/3
+  barrierX = (windowWidth/2) - (barrierWidth /2)
   rocket = new Rocket()
   population = new Population()
   lifespanDisplay = createP()
