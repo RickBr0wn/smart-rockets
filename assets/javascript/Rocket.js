@@ -35,24 +35,29 @@ class Rocket{
 
   update(){
     let distance = dist(this.pos.x, this.pos.y, target.x, target.y)
-    if(distance < 10){
-      this.completed = true
-      this.pos = target.copy()
+    
+    if (distance < 10) {
+      this.completed = true;
+      this.pos = target.copy();
     }
 
-    if(this.pos.x > barrierX 
-        && this.pos.x < barrierX + barrierWidth
-        && this.pos.y > barrierHeight
-        && this.pos.y < barrierY + barrierHeight){
-          this.crashed = true
-        }
-
-    if(this.pos.x > width || this.pos.x < 0){
-      this.crashed = true
+    // Rocket hit the barrier
+    if (this.pos.x > barrierX 
+        && this.pos.x < barrierX + barrierWidth 
+        && this.pos.y > barrierY 
+        && this.pos.y < barrierY + barrierHeight) {
+          this.crashed = true;
+    }
+    
+    // Rocket has hit left or right of window
+    if (this.pos.x > width || this.pos.x < 0) {
+      this.crashed = true;
     }
 
-    // if(this.pos.y > height || this.pos.y < 0){
-    //   this.crashed = true
+    // // Rocket has hit top or bottom of window
+    // // if (this.pos.y > height || this.pos.y < 0) {
+    //   if (this.pos.y > height){
+    //   this.crashed = true;
     // }
 
     this.applyForce(this.dna.genes[count])
